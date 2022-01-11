@@ -48,7 +48,7 @@ mkNFTPolicy tn utxo _ ctx = traceIfFalse "UTxO not consumed"   hasUTxO          
         [(_, tn', amt)] -> tn' == tn && amt == 1
         _               -> False
 
--- cabal run plutus-lobster-tokens -- $token_name $tx_out_ref 
+-- cabal run axu-nft -- $token_name $tx_out_ref
 nftPolicy :: TokenName -> TxOutRef -> Scripts.MintingPolicy
 nftPolicy tn utxo = mkMintingPolicyScript $
     $$(PlutusTx.compile [|| \tn' utxo' -> Scripts.wrapMintingPolicy $ mkNFTPolicy tn' utxo' ||])
