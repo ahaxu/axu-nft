@@ -1,0 +1,12 @@
+{
+  "1": {
+    "22b351c5eaa507545edb68030dc24baa68efb039ab5db07ced9f56d1": {
+      "NghienChayBoNFT": {
+        "description": "NghienChayBoNFT description",
+        "name": "NghienChayBoNFT",
+        "id": "1",
+        "attributes":{"tan cong": 100, "phong thu": 50, "he": "thuy"}
+      }
+    }
+  }
+}
