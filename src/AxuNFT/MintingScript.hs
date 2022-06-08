@@ -34,8 +34,9 @@ import           Prelude                  (Show)
 
 {-# INLINABLE mkNFTPolicy #-}
 mkNFTPolicy :: TokenName -> TxOutRef -> BuiltinData -> ScriptContext -> Bool
-mkNFTPolicy tn utxo _ ctx = traceIfFalse "UTxO not consumed"   hasUTxO           &&
-                            traceIfFalse "wrong amount/token name minted" checkMintedAmount
+mkNFTPolicy tn utxo _ ctx = traceIfFalse "UTxO not consumed"   hasUTxO         
+                            && traceIfFalse ("sai gi roi / sai token name") checkTokenName
+                            && traceIfFalse ("sai gi roi / sai amount") checkMintedAmount
   where
     info :: TxInfo
     info = scriptContextTxInfo ctx
@@ -43,10 +44,15 @@ mkNFTPolicy tn utxo _ ctx = traceIfFalse "UTxO not consumed"   hasUTxO          
     hasUTxO :: Bool
     hasUTxO = any (\i -> txInInfoOutRef i == utxo) $ txInfoInputs info
 
+    checkTokenName :: Bool
+    checkTokenName = case flattenValue (txInfoMint info) of
+        [(_, tn', _)] -> tn' == tn 
+        _             -> False
+    
     checkMintedAmount :: Bool
     checkMintedAmount = case flattenValue (txInfoMint info) of
-        [(_, tn', amt)] -> tn' == tn && amt == 1
-        _               -> False
+        [(_, _, amt)] -> amt == 1
+        _             -> False
 
 -- cabal run axu-nft -- $token_name $tx_out_ref
 nftPolicy :: TokenName -> TxOutRef -> Scripts.MintingPolicy

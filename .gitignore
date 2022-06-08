@@ -21,3 +21,6 @@ cabal.project.local
 cabal.project.local~
 .HTF/
 .ghc.environment.*
+*.plutus
+script/axu-tx-body.01
+script/protocol-parameters.json

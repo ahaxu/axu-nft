@@ -1,9 +1,9 @@
 {
   "1": {
-    "22b351c5eaa507545edb68030dc24baa68efb039ab5db07ced9f56d1": {
-      "NghienChayBoNFT": {
-        "description": "NghienChayBoNFT description",
-        "name": "NghienChayBoNFT",
+    "33accb2bb7c4fef12394a3df92d602f4a214b30e2112597fa7c961f1": {
+      "KyAnh": {
+        "description": "KyAnh description",
+        "name": "KyAnh",
         "id": "1",
         "attributes":{"tan cong": 100, "phong thu": 50, "he": "thuy"}
       }
