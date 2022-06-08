@@ -27,7 +27,9 @@ Then you can check on test net https://testnet.cardanoscan.io/transaction/4aec09
 
 ### Connect to wallet
 
-- Todo
+Link to sample of connectiong with wallet (nami in this case)
+
+https://github.com/ahaxu/minting-nft-sample
 
 ### Market place
 
