@@ -5,6 +5,15 @@
 Test net
 
 ```
+# check out alonzo/rc-2 from plutus dir 
+cd ~/path-tu-plutus-dir/
+git checkout alonzo/rc-2
+
+# then run nix-shell
+nix-shell
+
+# when you are in nix-shell, change dir to this project base path
+
 # to get the utxo
 export TESTNETMAGIC=1097911063
 
